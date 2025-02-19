@@ -1,4 +1,4 @@
-const escapeStr = "\"\'\\\/'"
+const escapeStr = "\"\`\\\/'"
 const num = 4
 const bool = true
 const undef = undefined
