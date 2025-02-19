@@ -1,1 +1,1 @@
-console.log('Hello World') /// nkk
+console.log('Hello World')
