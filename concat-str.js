@@ -1,1 +1,1 @@
-const concatStr = (a,b) => (a+b) // comments
+const concatStr = (a,b) => (String(a)+String(b)) // comments
