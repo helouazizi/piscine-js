@@ -4,6 +4,4 @@ const clone2 = {...person}
 const samePerson = person
 person.age++
 person.country = "FR"
-samePerson.country = person.country
-samePerson.age = person.age
 
