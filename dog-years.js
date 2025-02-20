@@ -2,21 +2,21 @@ function dogYears(planet, dogAge) {
     const year = dogAge / 60 / 60 / 24 / 365.25
     switch (planet) {
         case "mercury":
-            return (year * 7 * 0.2408467).toFixed(2);
+            return Math.round((year * 7 * 0.2408467) * 100) / 100
         case "venus":
-            return (year * 7 * 0.61519726).toFixed(2);
+            return Math.round((year * 7 * 0.61519726) * 100) / 100
         case "mars":
-            return (year * 7 * 1.8808158).toFixed(2);
+            return Math.round((year * 7 * 1.8808158) * 100) / 100
         case "jupiter":
-            return (year * 7 * 11.862615).toFixed(2);
+            return Math.round((year * 7 * 11.862615) * 100) / 100
         case "saturn":
-            return (year * 7 * 29.447498).toFixed(2);
+            return Math.round((year * 7 * 29.447498) * 100) / 100
         case "uranus":
-            return (year * 7 * 84.016846).toFixed(2);
+            return Math.round((year * 7 * 84.016846) * 100) / 100
         case "neptune":
-            return (year * 7 * 164.79132).toFixed(2);
+            return Math.round((year * 7 * 164.79132) * 100) / 100
         case "earth":
-            return (year * 7 *1).toFixed(2);
+            return Math.round((year * 7 * 1) * 100) / 100
     }
 }
 
