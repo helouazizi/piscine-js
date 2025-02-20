@@ -14,7 +14,7 @@ function dogYears(planet, dogAge) {
         case "saturn":
             return Math.round((year * 7 / 29.447498) * 100) / 100
         case "uranus":
-            return Math.round((year * 7 * 84.016846) * 100) / 100
+            return Math.round((year * 7 / 84.016846) * 100) / 100
         case "neptune":
             return Math.round((year * 7 / 164.79132) * 100) / 100
         case "earth":
