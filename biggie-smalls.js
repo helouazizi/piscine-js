@@ -1,1 +1,1 @@
-var  smalls = Number.MIN_VALUE , biggie = Number.MAX_VALUE
+var  smalls = Number.MIN_VALUE , biggie = Number.MAX_SAFE_INTEGER
