@@ -1,5 +1,5 @@
 function dogYears(planet, dogAge) {
-   
+    const year = dogAge / 60 / 60 / 24 / 365.25
     switch (planet) {
         case "mercury":
             return year * 7 * 0.2408467;
