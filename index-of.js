@@ -1,38 +1,36 @@
 
-function indexOf(arr, val, startindex) {
-    let res = -1
-    if (startindex < 0 || startindex > arr.length || startindex === undefined) {
-        startindex = 0
+function indexOf(arr, val, startindex = 0) {
+    if (startindex < 0 || startindex > arr.length) {
+        return -1
     }
-    for (let i = startindex ; i < arr.length ; i++){
-        if (arr[i]=== val){
-            res = i
-            break
+    let res = -1
+    for (startindex; startindex < arr.length; startindex++) {
+        if (arr[startindex] === val) {
+            return startindex
         }
     }
-    return res
+    return -1
 
 }
 
-function lastIndexOf (arr, val,startindex) {
-    let res = -1
-    if (startindex < 0 || startindex > arr.length || startindex === undefined) {
-        startindex = arr.length
+function lastIndexOf(arr, val, startindex = arr.length) {
+    if (startindex < 0 || startindex > arr.length) {
+   
+        return -1
     }
-    for (let i = startindex ; i > 0 ; i--){
-        if (arr[i] === val){
-            res = i
-            break
+    console.log(startindex)
+    for (startindex; startindex >= 0; startindex--) {
+        if (arr[startindex] === val) {
+            return startindex
         }
     }
-    return res
+    return -1
 }
 
-function includes (arr, val){
-    let index =indexOf(arr, val)
-    if ( index === -1){
+function includes(arr, val) {
+    let index = indexOf(arr, val)
+    if (index === -1) {
         return false
     }
     return true
 }
-
