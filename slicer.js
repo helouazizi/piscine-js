@@ -1,18 +1,20 @@
-function slice(text , start, end){
-    if (start < 0 && end < 0){
-        return ""
+function slice(arr, s , e=arr.length) {
+    let res = []
+    if ( s>=arr.length) {
+        return typeof arr ==="string" ? res.join("") : res  
     }
-    if (start < 0) {
-        if (end !== undefined) {
-            return ""
-        }
-        start = text.length - Math.abs(start)
+    if (s<0 && e<0) {
+        e = arr.length-(-e)
+        s = arr.length - (-s)
+    } else if (s<0) {
+        s = arr.length - (-s)
+    } else if (e<0) {
+        e = arr.length-(-e)
+     }  
+    for (s; s<e ; s++) {
+        res.push(arr[s])
     }
-    if (end < 0) {
-        end = text.length - Math.abs(end)
-    }
-    let res = "hassan"
-    console.log(res.slice(-1,-5))
-    return text[text.length-1]
+    
+    
+    return typeof arr ==="string" ? res.join("") : res  
 }
-console.log(slice([5,6,5,8],-1,3))
