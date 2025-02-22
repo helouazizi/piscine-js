@@ -5,7 +5,7 @@ function round(nums) {
     }
     console.log(isarray,nums.length)
     let res = []
-    for (let i = 0; i < nums.legth; i++) {
+    for (let i = 0; i < nums.length; i++) {
         let num = nums[i]
         console.log(nums[i])
         let intnum = trunc(num)
@@ -42,7 +42,7 @@ function ceil(nums) {
         isarray = true
     }
     let res = []
-    for (let i = 0; i < nums.legth; i++) {
+    for (let i = 0; i < nums.length; i++) {
         let num = nums[i]
         let intnum = trunc(num)
        // let diff = num - intnum
@@ -67,7 +67,7 @@ function floor(nums) {
         isarray = true
     }
     let res = []
-    for (let i = 0; i < nums.legth; i++) {
+    for (let i = 0; i < nums.length; i++) {
         let num = nums[i]
         let intnum = trunc(num)
        // let diff = num - intnum
