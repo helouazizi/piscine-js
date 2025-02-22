@@ -1,7 +1,9 @@
 function split(str,dlm){
     let res = [];
     let temp = "";
-    
+    if (dlm == ""){
+        return [...str]
+    }
 
     for (let i= 0;i < str.length;i++) {
     
@@ -20,4 +22,16 @@ function split(str,dlm){
 
 }
 
-console.log(split('rrrr', 'rr'))
+function join(arr,dlm=""){
+    let res = ""
+    for (let i= 0;i < arr.length;i++) {
+        res += arr[i]
+        if (i < arr.length-1) {
+            res += dlm
+        }
+    }
+    return res
+
+}
+
+console.log(join( ['Fire', 'Air', 'Water'],'-'))
