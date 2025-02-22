@@ -1,30 +1,23 @@
 function split(str,dlm){
-    let res = []
-    let test = ""
-    let space  = false
-    if (dlm.length > 1){
-        dlm = dlm.replace(/\s+/g,'')
-        space = true
-    }
+    let res = [];
+    let temp = "";
     
-    console.log(dlm.length)
-    for (let i = 0 ; i < str.length ; i++){
-        let char =  str[i]
-        if (char === dlm){
-            res.push(test)
-            test = ""
-            continue
+
+    for (let i= 0;i < str.length;i++) {
+    
+        if (str.slice(i, i + dlm.length) == dlm) {
+            res.push(temp); // Store the current segment
+            temp = ""; // Reset for the next segment
+            i += dlm.length -1
+           
+        } else {
+            temp += str[i]; // Add character to current segment            
         }
-        if (space){
-            test+=char.replace(/\s+/g,'')
-        }else{
-            test += char
-        }
-        
     }
-    res.push(test)
-    return res
+
+    res.push(temp); // Push the last segment
+    return res;
 
 }
 
-console.log(split('gggg','gg'))
+console.log(split('rrrr', 'rr'))
