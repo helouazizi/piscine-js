@@ -4,27 +4,25 @@ const days = [
     "secondFriday", "secondSaturday", "secondSunday"
 ]
 function addWeek(time) {
-    let times = time.split('-').map(index => Number(index))
-    let day = times[2]
-    if (day-14 <= 0) {
-        console.log( day)
-        console.log(days[day-1])
-    }else if(day-14 > 0 && day-14 <= 14 ){
-        day = day -14
-        console.log( day)
-        console.log(days[day-1])
-    }else {
-        day = day - 28 
-        console.log( day)
-        console.log(days[day-1])
-    }
-
-    console.log(times)
-
-
+    let epoch = new Date('0001-01-01')
+    //console.log(((time-epoch)/1000/60/60/24)%14)
+    let day = ((time-epoch)/1000/60/60/24)%14
+    console.log(day)
+    return days[day]
 }
-function timeTravel() {
+function timeTravel(obj) {
+    obj.date.setHours(obj.hour)
+    obj.date.setMinutes(obj.minute)
+    obj.date.setSeconds(obj.second)
 
+   return obj.date
 }
 
-addWeek("0001-01-09")
+let test = {
+    date: new Date('2020-05-29 23:25:22'),
+    hour: 21,
+    minute: 22,
+    second: 22,
+  }
+
+console.log(timeTravel(test))
