@@ -12,7 +12,6 @@ function isValid(date){
     }
     return !isNaN(tets.getTime()) 
 }
-
 function isAfter(date,date1){
     return date > date1
 }
@@ -23,6 +22,6 @@ function isBefore(date,date1){
 function isFuture(date){
     return isValid(date) && isAfter(date,Date.now())
 }
-function isFuture(date){
-    return isValid(date) && isAfter(date,Date.now())
+function isPast(date){
+    return isValid(date) && isBefore(date,Date.now())
 }
