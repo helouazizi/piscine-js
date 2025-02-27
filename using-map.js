@@ -1,5 +1,5 @@
 function citiesOnly(arr){
-    return arr.map(index => index['city'])
+    return arr.map(index => index[city])
 }
 
 let test =[
