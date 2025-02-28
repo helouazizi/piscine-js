@@ -4,10 +4,10 @@
 
 // function filterStartVowel(arr){
 //     return arr.filter(kalma => /^[auoieAUOIE]/.test(kalma))
-// }
-// function filter5Vowels(arr){
-//     return arr.filter(kalma =>kalma.match(/[auoie]/g || []).length >= 5)
-// }
+}
+function filter5Vowels(arr){
+    return arr.filter(kalma =>kalma.match(/[auoie]/g || []).length >= 5)
+}
 function filter1DistinctVowel(arr){
     return arr.filter(kalma => {
         let vowls = [...kalma.toLowerCase()].filter(char => 'auieo'.includes(char))
