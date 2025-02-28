@@ -1,6 +1,6 @@
-// function filterShortStateName(arr){
-//     return arr.filter(elm => elm.length < 7)
-// }
+function filterShortStateName(arr){
+    return arr.filter(elm => elm.length < 7)
+}
 
  function filterStartVowel(arr){
     return arr.filter(kalma => /^[auoieAUOIE]/.test(kalma))
