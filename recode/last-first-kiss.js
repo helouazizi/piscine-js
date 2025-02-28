@@ -1,3 +1,4 @@
 const first = (arr) => arr[0]
-
-console.log(first(["hassan","hhhjjh"]))
+const last = (arr) => arr[arr.length-1]
+const kiss = (arr) => [last(arr),first(arr)]
+console.log(kiss("hassan"))
