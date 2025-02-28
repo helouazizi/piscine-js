@@ -1,6 +1,6 @@
 function isPositive(num) {
     if (Object.is(num, 0)) {
-        return true
+        return false
     } else if (Object.is(num, -0)) {
         return false
     } else if (num < 0) {
@@ -11,10 +11,13 @@ function isPositive(num) {
 }
 
 function abs(num){
+    if (Object.is(num, 0)) {
+        return 0
+    }
     if (!isPositive(num)){
         return -num
     }
     return num
 }
 
-console.log(abs(8))
+console.log(isPositive(0))
