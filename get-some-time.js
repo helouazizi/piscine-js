@@ -1,7 +1,7 @@
 function firstDayWeek(num, year) {
     year = parseInt(year);  // Ensure year is a number
     let date = new Date(year, 0, 1);  // Start at January 1st
-
+    
     let offsetday = (num-1)*7
     date.setDate(date.getDate()+offsetday)
     let day = String(date.getDate()).padStart(2,'0')
