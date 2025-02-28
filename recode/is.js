@@ -18,7 +18,7 @@ is.undef = function (str){
     return typeof  str === 'undefined'
 }
 is.def = function (str){
-    return typeof  str === 'defined'
+    return  !is.undef(str)
 }
 is.arr = function (str){
     return Array.isArray(str)
@@ -26,15 +26,15 @@ is.arr = function (str){
 is.obj = function (value){
     return value !== null && typeof value === 'object' && !is.arr(value);
 }
-is.func = function (str){
+is.fun = function (str){
     return typeof  str === 'function' 
 }
 is.truthy = function (str){
-    return typeof  str === 'truthy' 
+    return  !str ? false : true
 }
 is.falsy = function (str){
-    return typeof  str === 'falsy' 
+    return !str
 }
 
 
-console.log(typeof(Object.is))
+console.log(is.fun( ["t", console.log]))
