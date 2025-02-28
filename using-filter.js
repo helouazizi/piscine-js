@@ -2,8 +2,8 @@
 //     return arr.filter(elm => elm.length < 7)
 // }
 
-// function filterStartVowel(arr){
-//     return arr.filter(kalma => /^[auoieAUOIE]/.test(kalma))
+ function filterStartVowel(arr){
+    return arr.filter(kalma => /^[auoieAUOIE]/.test(kalma))
 }
 function filter5Vowels(arr){
     return arr.filter(kalma =>kalma.match(/[auoie]/g || []).length >= 5)
