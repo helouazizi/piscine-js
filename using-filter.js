@@ -15,14 +15,14 @@
 //     })
 // }
 
-// function multiFilter(arr) {
-//     return arr.filter(obj => {
-//         return obj.capital.length >= 8 &&                // capital has at least 8 characters
-//                !/^[aeiou]/i.test(obj.name) &&            // name does NOT start with a vowel
-//                (obj.tag.match(/[aeiou]/gi) ?? []).length >= 1 &&  // tag contains at least one vowel
-//                obj.region !== "South";                   // region is not "South"
-//     });
-// }
+function multiFilter(arr) {
+    return arr.filter(obj => {
+        return obj.capital.length >= 8 &&                // capital has at least 8 characters
+               !/^[aeiou]/i.test(obj.name) &&            // name does NOT start with a vowel
+               (obj.tag.match(/[aeiou]/gi) ?? []).length >= 1 &&  // tag contains at least one vowel
+               obj.region !== "South";                   // region is not "South"
+    });
+}
 
 
 const words = ['spray', 'elite', 'exuberanat', 'destruction', 'present'];
