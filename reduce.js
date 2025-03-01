@@ -6,7 +6,7 @@ function fold(arr,func,accum=0){
 }
 
 function foldRight(arr,func,accum=0){
-    for  (let i =arr.length ; i>0; i--){
+    for  (let i = arr.length-1 ; i>=0; i--){
      accum = func(accum,arr[i])
     }
     return accum
