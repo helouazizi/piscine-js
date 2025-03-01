@@ -11,16 +11,16 @@ function foldRight(arr, func, accum = 0) {
     }
     return accum
 }
-function reduce(arr, func, accum = undefined) {
-    if (accum === undefined){
-        accum = arr[0]
+function reduce(array, func) {
+    if (array.length < 1) {
+        throw new Error("Reduce of empty array with no initial value");
     }
-    if (accum === NaN){
-        return 'error'
+
+    let accum = array[0]; // First element as the initial accumulator
+    for (let i = 1; i < array.length; i++) {
+        accum = func(accum, array[i]);
     }
-    for (let i = 0; i < arr.length; i++) {
-        accum = func(accum, arr[i])
-    }
-    return accum
+    return accum;
 }
+
 
