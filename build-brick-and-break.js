@@ -29,7 +29,9 @@ export const build = (nb) => {
 
 export const repair = (...ids) => {
     ids.forEach(id => {
-        let brick = document.getElementById(`brick-${id}`)
+        console.log(id);
+        
+        let brick = document.getElementById(`${id}`)
         if (brick){
             if(brick.hasAttribute("data-foundation")){
                 brick.setAttribute("data-repaired", "in progress")
@@ -43,7 +45,7 @@ export const repair = (...ids) => {
 
 export const destroy = () => {
     if (brickount > 0) {
-        let lastBrick = document.getElementById(`brick-${brickount}`);
+        let lastBrick = document.getElementById(`brick-${brickount-1}`);
         if (lastBrick) {
             lastBrick.remove();
             brickount--;
