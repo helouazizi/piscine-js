@@ -19,5 +19,5 @@ export const getActive = () => {
 export const getBonannoPisano = () => {
     let bonn =  document.getElementById('BonannoPisano')
     let active = document.querySelectorAll('a.classical.active,span.classical.active')
-    return [bonn,[active]]
+    return [bonn,active]
 }
