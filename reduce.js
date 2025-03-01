@@ -16,9 +16,9 @@ function reduce(array, func) {
         throw new Error("Reduce of empty array with no initial value");
     }
 
-    let accum = array[0]; // First element as the initial accumulator
+    let accum = array[0]
     for (let i = 1; i < array.length; i++) {
-        accum = func(accum, array[i]);
+        accum = func(accum, array[i])
     }
     return accum;
 }
