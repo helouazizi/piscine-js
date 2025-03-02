@@ -8,10 +8,14 @@ export const generateClasses = () => {
 
     }
     style.textContent = css
-    css =""
+    css = ""
 }
 export const generateColdShades = () => {
-    for (let color of colors) {
+    const filtredcolors = colors.filter(color =>
+        /aqua|blue|turquoise|green|cyan|navy|purple/.test(color)
+    );
+    console.log(filtredcolors)
+    for (let color of filtredcolors) {
         let div = document.createElement('div')
         div.classList.add(color)
         div.textContent = color
@@ -20,7 +24,10 @@ export const generateColdShades = () => {
 }
 export const choseShade = (arg) => {
     let alldivs = document.querySelectorAll('div')
-    for (let div of alldivs){
-        div.classList.replace(div.textContent,arg)
+    for (let div of alldivs) {
+     
+            div.classList.replace(div.textContent, arg)
+        
+
     }
 }
