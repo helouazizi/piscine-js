@@ -1,18 +1,29 @@
 import { styles } from "./pimp-my-style.data.js"
-
-
+let i = 0
+let inremove = false
 export const pimp = () => {
-    console.log(styles);
-    let i = 0
-    let step = 0
-    for (let i = 0 ; i< styles.length ; i++){
-        let btn = document.querySelector('button')
-        console.log(styles[i])
-        btn.classList.add(styles[i])
+    let btn = document.querySelector("button");
+    if (btn) {
+        if (!inremove) {
+            if (i < styles.length) {
+                console.log(styles[i]);
+                btn.classList.add(styles[i]);
+                i++;
+            }
+            if (i === styles.length){
+                inremove = true
+                btn.classList.toggle("unpimp", true); // Toggle unpimp ON
+            }
+        } else {
+            i--
+            btn.classList.remove(styles[i])
+            if (i===0){
+                inremove = false
+                btn.classList.toggle("unpimp", false); // Toggle unpimp ON
+            }
+            
+        }
+
     }
-   
-
-
-
 
 }
