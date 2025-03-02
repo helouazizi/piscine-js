@@ -25,9 +25,6 @@ export const generateColdShades = () => {
 export const choseShade = (arg) => {
     let alldivs = document.querySelectorAll('div')
     for (let div of alldivs) {
-     
-            div.classList.replace(div.textContent, arg)
-        
-
+        div.className = arg
     }
 }
