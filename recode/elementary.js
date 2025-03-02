@@ -21,4 +21,9 @@ function multiply(a,b){
     return sighn ? -res : res
 }
 
+
+function divide(a,b){
+
+}
+
 console.log(multiply(-5,-5))
