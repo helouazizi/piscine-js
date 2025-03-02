@@ -9,7 +9,10 @@ export const compose = () => {
             let note = document.createElement('div')
             note.classList.add("note")
             note.textContent = event.key
-            note.style.background = 'red'
+            let color = `hsl(${Math.floor(Math.random()*360)},${20}%,${50}%)`
+            console.log(color);
+            
+            note.style.background = color
             container.append(note)
         }
 
