@@ -21,7 +21,14 @@ function keepFirst(arr){
 
 
 function keepLast(arr){
-    
+    return arr.slice(-2)
 }
 
-console.log(keepFirst('a'))
+function keepFirstLast(arr){
+    if (arr.length < 4){
+        return arr
+    }
+    return arr.slice(0,2)+arr.slice(-2)
+}
+
+console.log(keepFirstLast('ad'))
