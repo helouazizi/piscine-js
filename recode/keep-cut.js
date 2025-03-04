@@ -8,6 +8,20 @@ function cutLast(arr){
     return arr.slice(0,-2)
 }
 
-function 
+function cutFirstLast(arr){
+    return arr.slice(2,-2)
+}
 
-console.log(cutLast('abcdef'))
+function keepFirst(arr){
+    if (arr.length < 2){
+        return arr
+    }
+    return arr.slice(0,2)
+}
+
+
+function keepLast(arr){
+    
+}
+
+console.log(keepFirst('a'))
