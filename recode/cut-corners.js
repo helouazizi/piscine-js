@@ -1,35 +1,94 @@
 function trunc(num) {
     let count = 0
     let res = 0
-    while (num > 100) {
-        n /= 1000
-        count++
+    let sign = false
+    let isbiger = false
+    if ( num < 0 ){
+        sign = true
+        num = -num
     }
-
-    for (let i = 0; i < num; i++) {
-        res += i
+    if (num > 1000){
+        while (num > 1000) {
+            num -= 1000
+            count++
+            //console.log("ljli")
+        }
+        isbiger = true
     }
-    return res + count * 1000
+   
+    while (num >= 1){
+        num -=1
+        res++
+    }
+    if (isbiger){
+        res = res + count * 1000
+    }
+    //console.log(count,sign,res)
+    return sign ? -res : res 
 
 }
 
 
 function round(num) {
     let res = []
-    if (!Array.isArray(num)){
+    let not = true
+    if (!Array.isArray(num)) {
         num = [num]
+        not = false
     }
     for (let i = 0; i < num.length; i++) {
-        console.log(1);
-        
-        let trunccc = trunc(num[i])
-        let dif = num[i] - trunccc
-        if (dif < 0.5){
-            res.push(trunc(num[i]))
-        }else{
-            res.push(trunc(num[i]+1))
+        let numi = num[i]
+        let trunccc = trunc(numi)
+        let dif = numi - trunccc
+        if (numi >= 0) {
+            res.push(dif < 0.5 ? trunccc : trunccc+1)
+        } else {
+            res.push(-dif < 0.5 ? trunccc : trunccc-1)
         }
     }
 
-    return res
+    return not ?res : res[0]
 }
+
+function floor(num){
+    let res = []
+    let not = true
+    if (!Array.isArray(num)) {
+        num = [num]
+        not = false
+    }
+    for (let i = 0; i < num.length; i++) {
+        let numi = num[i]
+        let trunccc = trunc(numi)
+        if (numi >= 0) {
+            res.push( trunccc )
+        } else {
+            res.push(trunccc-1)
+        }
+    }
+
+    return not ?res : res[0]
+}
+
+
+function ceil(num){
+    let res = []
+    let not = true
+    if (!Array.isArray(num)) {
+        num = [num]
+        not = false
+    }
+    for (let i = 0; i < num.length; i++) {
+        let numi = num[i]
+        let trunccc = trunc(numi)
+        if (numi > 0) {
+            res.push(trunccc+1)
+        } else {
+            res.push(trunccc)
+        }
+    }
+
+    return not ? res : res[0]
+}
+
+console.log(ceil([4]))
