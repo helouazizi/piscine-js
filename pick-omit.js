@@ -19,7 +19,7 @@ function omit(obj,arr){
         arr = [arr]
     }
     for(let key in obj){
-        if(!arr.every(elm => elm !== key)){
+        if(!arr.some(elm => elm === key) && obj.hasOwnProperty(key)){
             res[key] = obj[key]
         }
     }
