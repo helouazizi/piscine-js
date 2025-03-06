@@ -2,7 +2,6 @@ function pyramid(s,n){
     let res = ""
     let e = 1
     for (let i = 1; i <= n; i++){
-       
         for (let k = n-i; k > 0; k--){
             res += " ".repeat(s.length)
         }
