@@ -1,6 +1,6 @@
 function get(src,path){
     let keys = path.split('.')
-    if (keys.length === 1){
+    if (keys.length === 1){x
         return src[keys[0]]
     }
     if (keys[0] in src ){
