@@ -22,7 +22,7 @@ function fusion(...args) {
 
     return res;
 }
-Array.some(elm => elm ===key)
+
 
 
 
