@@ -41,6 +41,7 @@ function reduceCurry(func){
 
 function filterCurry(func){
     return function(obj={}){
+        //console.log(Object.entries(obj));
         let res = {}
         for (const [key,val] of Object.entries(obj)) {
             if (func([key,val] )){
@@ -51,9 +52,24 @@ function filterCurry(func){
     }
 }
 
-function reduceScore(params) {
-    
+function reduceScore(obj,acc=0) {
+    return reduceCurry((acc,[_,val])=> val.isForceUser ? acc+= val.shootingScore + val.pilotingScore:acc)(obj,acc)
 }
+function filterForce(obj) {
+    return filterCurry(([_,val]) =>  val.isForceUser && val.shootingScore >= 80)(obj)
+}
+function mapAverage(obj) {
+    return mapCurry(([key, val]) => [
+        key, 
+        { 
+            ...val, 
+            averageScore: (val.shootingScore + val.pilotingScore) / 2 
+        }
+    ])(obj);
+}
+
+
+
 //console.log(reduceCurry((acc, [k, v]) => (acc += v))({ a: 1, b: 2, c: 3 }, 0));
 
 
