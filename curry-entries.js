@@ -35,12 +35,12 @@ function mapCurry(func) {
 //     connection: 'keep-alive',
 //     content_type: 'text/css',
 //   })
-// defaultCurry({
-//     http: 403,
-//     connection: 'close',
-//     contentType: 'multipart/form-data',
-//   },{
-//     http: 200,
-//     connection: 'open',
-//     requestMethod: 'GET'
-//   })
+defaultCurry({
+    http: 403,
+    connection: 'close',
+    contentType: 'multipart/form-data',
+  },{
+    http: 200,
+    connection: 'open',
+    requestMethod: 'GET'
+  })
