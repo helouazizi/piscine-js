@@ -19,16 +19,16 @@ function defaultCurry(obj1) {
     }
 }
 
-// function mapCurry(func) {
-//     return function (obj) {
-//         let res = {}
-//         for (const [key,val] of Object.entries(obj)){
-//             const  [nekey,newval] = func( [key,val] )
-//             res [nekey] = newval
-//         }
-//         return res
-//     }
-// }
+function mapCurry(func) {
+    return function (obj) {
+        let res = {}
+        for (const [key,val] of Object.entries(obj)){
+            const  [nekey,newval] = func( [key,val] )
+            res [nekey] = newval
+        }
+        return res
+    }
+}
 // defaultCurry({ http: 403, age: 0, connection: 'close' })({
 //     http: 200,
 //     age: 30,
