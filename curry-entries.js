@@ -29,12 +29,12 @@ function mapCurry(func) {
         return res
     }
 }
-defaultCurry({ http: 403, age: 0, connection: 'close' })({
-    http: 200,
-    age: 30,
-    connection: 'keep-alive',
-    content_type: 'text/css',
-  })
+// defaultCurry({ http: 403, age: 0, connection: 'close' })({
+//     http: 200,
+//     age: 30,
+//     connection: 'keep-alive',
+//     content_type: 'text/css',
+//   })
 // defaultCurry({
 //     http: 403,
 //     connection: 'close',
