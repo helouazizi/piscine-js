@@ -29,6 +29,34 @@ function mapCurry(func) {
         return res
     }
 }
+function reduceCurry(func){
+    return function (obj={},acc = ""){
+        let res = acc
+        for (const [key,vla] of Object.entries(obj)){
+            res = func(res ,[key,vla])
+        }
+        return res
+    }
+}
+
+function filterCurry(func){
+    return function(obj={}){
+        let res = {}
+        for (const [key,val] of Object.entries(obj)) {
+            if (func([key,val] )){
+                res[key] =val
+            }
+        }
+        return res
+    }
+}
+
+function reduceScore(params) {
+    
+}
+//console.log(reduceCurry((acc, [k, v]) => (acc += v))({ a: 1, b: 2, c: 3 }, 0));
+
+
 // defaultCurry({ http: 403, age: 0, connection: 'close' })({
 //     http: 200,
 //     age: 30,
