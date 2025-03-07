@@ -20,13 +20,26 @@ function mapKeys(obj, func) {
     return res
 }
 
-function reduceKeys(obj,func){
-    let res = ""
-    for (let key in obj) {
-        res = func(res,key)
+function reduceKeys(obj, func, dlm = "") {
+    if (dlm === null) {
+        dlm = ""
     }
-    return res
+
+    let res = dlm; // Start with dlm (number or string)
+    let first = true;
+
+    for (let key in obj) {
+        if (first) {
+            res = typeof dlm === "number" ? dlm : dlm + key + dlm;
+            first = false;
+        } else {
+            res = func(res, key); // Apply function
+        }
+    }
+
+    return res;
 }
+
 
 
 const nutrients = { carbohydrates: 12, protein: 20, fat: 5 }
