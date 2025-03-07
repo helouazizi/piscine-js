@@ -29,18 +29,18 @@ function mapCurry(func) {
         return res
     }
 }
-// defaultCurry({ http: 403, age: 0, connection: 'close' })({
-//     http: 200,
-//     age: 30,
-//     connection: 'keep-alive',
-//     content_type: 'text/css',
-//   })
-defaultCurry({
-    http: 403,
-    connection: 'close',
-    contentType: 'multipart/form-data',
-  },{
+defaultCurry({ http: 403, age: 0, connection: 'close' })({
     http: 200,
-    connection: 'open',
-    requestMethod: 'GET'
+    age: 30,
+    connection: 'keep-alive',
+    content_type: 'text/css',
   })
+// defaultCurry({
+//     http: 403,
+//     connection: 'close',
+//     contentType: 'multipart/form-data',
+//   },{
+//     http: 200,
+//     connection: 'open',
+//     requestMethod: 'GET'
+//   })
