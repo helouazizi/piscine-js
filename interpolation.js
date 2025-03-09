@@ -4,17 +4,6 @@ function interpolation({ step, start, end, callback, duration }) {
     // let calculate the time
     let timer;
     let delay = duration / step
-    // for (let i = 0; i < step; i++) {
-    //     const x = start + i * distance
-    //     const y = x + (i + 1) * 2
-    //     setTimeout(() => {
-    //         callback([x, y])
-
-    //     }, delay)
-    // }
-    // setTimeout(() => {
-    //     callback([step * distance, end]);
-    // }, duration);
     let x = start
     let y = 0
     let count = 0
