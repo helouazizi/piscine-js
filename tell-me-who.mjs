@@ -11,7 +11,7 @@ try {
         const format = file.split('_')
         const first = format[0]
         const last = format[1].split('.')[0]
-        console.log(`${i}.  ${last} ${first}`);  // Print each file name
+        console.log(`${i}. ${last} ${first}`);  // Print each file name
         i++
     });
     //console.log(files.length);
