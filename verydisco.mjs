@@ -1,5 +1,6 @@
 import { argv } from "node:process";
 
+
 const arg = argv[2]
 
 if (!arg) {
