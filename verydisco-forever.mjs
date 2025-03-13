@@ -15,7 +15,7 @@ const veryDisco = (word) => {
 };
 
 const result = arg.split(" ").map(veryDisco).join(" ");
-writeFile("forever.txt", result, (err) => {
+writeFile("verydisco-forever.txt", result, (err) => {
     if (err) {
         console.error("Error writing to file:", err);
         process.exit(1);
