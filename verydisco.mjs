@@ -1,1 +1,7 @@
-const  {argv} = require ('node:process')
+import  {argv}  from 'node:process'
+
+argv.forEach(element => {
+    console.log(element);
+    
+});
+//
