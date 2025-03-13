@@ -6,15 +6,21 @@ const directory = process.argv[2] || process.cwd();  // Get the directory from a
 try {
     // Read directory contents
     const files = await readdir(directory);
-    let i = 1
-    files.forEach(file => {
-        const format = file.split('_')
-        const first = format[0]
-        const last = format[1].split('.')[0]
-        console.log(`${i}. ${last} ${first}`);  // Print each file name
-        i++
-    });
-    //console.log(files.length);
+    const clean = files.map(file => {
+        const [first,last] = file.replace('.json','').split('_')
+        return {last,first}
+    })
+    clean.sort((a,b)=> {
+        let kbir = a.last.localeCompare(b.last)
+        if (kbir === 0){
+            return  a.last.localeCompare(b.last)
+        }
+        return kbir
+    })
+    clean.forEach((obj,index )=> {
+        console.log(`${index+1}. ${obj.last} ${obj.first}`);
+        
+    })
 
 } catch (error) {
     console.error("Error reading directory:", error.message);  // Handle errors (e.g., directory not found)
