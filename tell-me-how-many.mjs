@@ -1,17 +1,15 @@
-import { readdir } from "node:fs/promises";
-import { argv } from "node:process";
+import { readdir } from 'node:fs/promises';
+//import { dirname } from 'node:path';
 
-
-async function read() {
-    try {
-        let path = argv[2]
-        const files = await readdir(path = ".")
-        files.forEach(file => {
-            console.log(file);
-        })
-    } catch (err) {
-        console.error(err)
-        process.exit(1)
-    }
+async function countDirectoryEntries() {
+        const directory = process.argv[2] || process.cwd();
+        
+        // Read directory contents
+         return  await readdir(directory);
 }
-read()
+
+// Run the main function
+countDirectoryEntries().then(files => {
+    files.forEach(file => {console.log(file);
+    })
+});
