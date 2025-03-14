@@ -1,6 +1,6 @@
-export function matchCron(patern, date) {
+function matchCron(patern, date) {
     const [min, hour, datee, month, day] = patern.split(' ');
-    
+
     const parse = (val) => val === '*' ? '*' : parseInt(val, 10);
 
     const cronvalues = [
