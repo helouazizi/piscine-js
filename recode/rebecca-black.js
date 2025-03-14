@@ -12,3 +12,7 @@ function isLeapYear(date) {
     let year = date.getFullYear()
     return (year % 4 === 0 )
 }
+
+function isLastDayOfMonth(date) {
+    
+}
