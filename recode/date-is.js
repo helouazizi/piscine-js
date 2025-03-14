@@ -1,6 +1,7 @@
 function isValid(date) {
-    let test = new Date(date)
-    console.log(test);
-    return instanceof === "object" ? true : false
+    if (date instanceof Date) {
+        return !isNaN(date.getTime())
+    }
+    return typeof date === "number" && date > 0
 }
-console.log(isValid("jhj"));
+console.log(isValid(Date.now()));
