@@ -9,5 +9,6 @@ function isWeekend(date) {
 
 
 function isLeapYear(date) {
-    
+    let year = date.getFullYear()
+    return (year % 4 === 0 )
 }
