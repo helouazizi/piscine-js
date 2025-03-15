@@ -23,6 +23,9 @@ function trimTemp(arr) {
     }))
 }
 
+function tempForecasts(arr) {
+    
+}
 
 console.log(trimTemp([
     { city: 'Los Angeles', temperature: '  101 °F   ' },
