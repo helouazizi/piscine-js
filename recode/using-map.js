@@ -16,10 +16,16 @@ function fahrenheitToCelsius(arr) {
     })
 }
 
-function trimTemp(params) {
-    
+function trimTemp(arr) {
+    return arr.map(obj => ({
+        ...obj,
+        temperature : obj.temperature.replace(/\s+/g,'')
+    }))
 }
 
 
-console.log(fahrenheitToCelsius(['5°F','55°F','58°F']));
+console.log(trimTemp([
+    { city: 'Los Angeles', temperature: '  101 °F   ' },
+    { city: 'San Francisco', temperature: ' 84 ° F   ' },
+  ]));
 
