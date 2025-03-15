@@ -1,9 +1,7 @@
 function citiesOnly(arr) {
-    let res =[]
-    arr.forEach(obj => {
-        res.push(obj['city'])
-    });
-    return res
+    return arr.map(obj => obj['city'])
 }
 
-
+function upperCasingStates(params) {
+    return -1
+}
