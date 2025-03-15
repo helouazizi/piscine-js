@@ -24,11 +24,18 @@ function trimTemp(arr) {
 }
 
 function tempForecasts(arr) {
-    
+    return arr.map(obj => {
+        let temp  = fahrenheitToCelsius([obj.temperature])[0]
+        return `${temp}elsius in ${upperCasingStates([obj.city])[0]}, ${upperCasingStates([obj.state])[0]}`
+    })
 }
 
-console.log(trimTemp([
-    { city: 'Los Angeles', temperature: '  101 °F   ' },
-    { city: 'San Francisco', temperature: ' 84 ° F   ' },
+console.log(tempForecasts([
+    {
+      city: 'Pasadena',
+      temperature: ' 101 °F',
+      state: 'california',
+      region: 'West',
+    },
   ]));
 
