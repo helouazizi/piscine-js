@@ -16,6 +16,10 @@ function fahrenheitToCelsius(arr) {
     })
 }
 
+function trimTemp(params) {
+    
+}
+
 
 console.log(fahrenheitToCelsius(['5°F','55°F','58°F']));
 
