@@ -10,7 +10,12 @@ function upperCasingStates(arr) {
     })
 }
 
+function fahrenheitToCelsius(arr) {
+    return arr.map(degre => {
+        return Math.floor((parseFloat(degre)-32)* 5 / 9)+'°C'
+    })
+}
 
 
-console.log(upperCasingStates(['hhjdsjj jhjh','sdfsd jkj','sgsdg dsf']));
+console.log(fahrenheitToCelsius(['5°F','55°F','58°F']));
 
