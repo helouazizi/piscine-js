@@ -14,3 +14,7 @@ function retry(count, callback) {
     };
 }
 
+
+function timeout(params) {
+    
+}
