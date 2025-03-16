@@ -14,7 +14,19 @@ function retry(count, callback) {
     };
 }
 
-
-function timeout(params) {
-    
+function timeout(delay, func) {
+    return async function (...args) {
+        return new Promise((resolve, reject) => {
+            const timer = setTimeout(() => reject(new Error('timeout')), delay);
+            func(...args)
+                .then(result => {
+                    clearTimeout(timer);
+                    resolve(result);
+                })
+                .catch(error => {
+                    clearTimeout(timer);
+                    reject(error);
+                });
+        });
+    };
 }
