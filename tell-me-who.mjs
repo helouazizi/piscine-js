@@ -13,7 +13,7 @@ try {
     clean.sort((a,b)=> {
         let kbir = a.last.localeCompare(b.last)
         if (kbir === 0){
-            return  a.last.localeCompare(b.last)
+            return  a.first.localeCompare(b.first)
         }
         return kbir
     })
