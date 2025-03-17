@@ -1,36 +1,63 @@
 export const setBox = () => {
-    let box = document.createElement('div')
-    box.classList.add('box')
-    document.body.append(box)
-}
+    let box = document.createElement('div');
+    box.classList.add('box');
+    document.body.append(box);
+};
 
 export const createCircle = () => {
     document.addEventListener("click", (event) => {
-        let div = document.createElement('div')
-        div.classList.add('circle')
-        div.style.background = "white"
-        div.style.left = `${event.clientX - 25}px`
-        div.style.top = `${event.clientY - 25}px`
-        document.body.append(div)
-    })
-}
+        let div = document.createElement('div');
+        div.classList.add('circle');
+        div.style.background = "white";
+        div.style.position = 'absolute'; // Added absolute positioning
+        
+        // Calculate position with respect to viewport
+        const x = event.clientX - 25;
+        const y = event.clientY - 25;
+        
+        div.style.left = `${x}px`;
+        div.style.top = `${y}px`;
+        document.body.append(div);
+    });
+};
 
 export const moveCircle = () => {
     document.addEventListener("mousemove", (event) => {
-        //console.log("X:", event.clientX, "Y", event.clientY)
-        let alldivs = document.getElementsByClassName('circle')
-        let box = document.querySelector('.box')
-        if (alldivs.length > 0) {
-            let lastone = alldivs[alldivs.length - 1]
-            lastone.style.left = `${event.clientX - 25}px`
-            lastone.style.top = `${event.clientY - 25}px`
-            let cirvlerec = lastone.getBoundingClientRect()
-            let boxrec = box.getBoundingClientRect()
-            console.log("x", cirvlerec, boxrec)
-            if (cirvlerec.left >= boxrec.left + 1 && cirvlerec.right <= boxrec.right - 1 && cirvlerec.top >= boxrec.top + 1 && cirvlerec.bottom <= boxrec.bottom - 1) {
-                lastone.style.background = 'var(--purple)'
-                document.removeEventListener("mousemove",moveCircle)
+        //console.log("X:", event.clientX, "Y", event.clientY);
+        const circles = document.getElementsByClassName('circle');
+        const box = document.querySelector('.box');
+        if (circles.length > 0) {
+            const lastCircle = circles[circles.length - 1];
+            
+            // Calculate position with respect to viewport
+            let x = event.clientX - 25;
+            let y = event.clientY - 25;
+
+            // Get bounding rectangles
+            const circleRect = lastCircle.getBoundingClientRect();
+            const boxRect = box.getBoundingClientRect();
+
+            // Check if circle is inside box boundaries
+            if (circleRect.left >= boxRect.left + 1 && 
+                circleRect.right <= boxRect.right - 1 && 
+                circleRect.top >= boxRect.top + 1 && 
+                circleRect.bottom <= boxRect.bottom - 1) {
+                
+                // Circle is trapped - prevent further movement
+                lastCircle.style.background = 'var(--purple)';
+                
+                // Store final position
+                // lastCircle.dataset.trappedX = circleRect.left;
+                // lastCircle.dataset.trappedY = circleRect.top;
+                
+                // Remove event listener to prevent further movement
+                document.removeEventListener("mousemove", moveCircle);
+                return;
             }
+
+            // Only update position if circle isn't trapped
+            lastCircle.style.left = `${x}px`;
+            lastCircle.style.top = `${y}px`;
         }
-    })
-}
+    });
+};
