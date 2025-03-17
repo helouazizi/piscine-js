@@ -10,54 +10,81 @@ export const createCircle = () => {
         div.classList.add('circle');
         div.style.background = "white";
         div.style.position = 'absolute'; // Added absolute positioning
-        
+
         // Calculate position with respect to viewport
         const x = event.clientX - 25;
         const y = event.clientY - 25;
-        
         div.style.left = `${x}px`;
         div.style.top = `${y}px`;
         document.body.append(div);
     });
 };
-
 export const moveCircle = () => {
     document.addEventListener("mousemove", (event) => {
-        //console.log("X:", event.clientX, "Y", event.clientY);
         const circles = document.getElementsByClassName('circle');
         const box = document.querySelector('.box');
-        if (circles.length > 0) {
+
+        if (circles.length > 0 && box) {
             const lastCircle = circles[circles.length - 1];
-            
-            // Calculate position with respect to viewport
-            let x = event.clientX - 25;
-            let y = event.clientY - 25;
-
             // Get bounding rectangles
-            const circleRect = lastCircle.getBoundingClientRect();
             const boxRect = box.getBoundingClientRect();
+            const circleSize = 50; // Assuming each circle is 50px
+            let x = event.clientX - circleSize / 2;
+            let y = event.clientY - circleSize / 2;
 
-            // Check if circle is inside box boundaries
-            if (circleRect.left >= boxRect.left + 1 && 
-                circleRect.right <= boxRect.right - 1 && 
-                circleRect.top >= boxRect.top + 1 && 
-                circleRect.bottom <= boxRect.bottom - 1) {
-                
-                // Circle is trapped - prevent further movement
-                lastCircle.style.background = 'var(--purple)';
-                
-                // Store final position
-                // lastCircle.dataset.trappedX = circleRect.left;
-                // lastCircle.dataset.trappedY = circleRect.top;
-                
-                // Remove event listener to prevent further movement
-                document.removeEventListener("mousemove", moveCircle);
-                return;
+            // Check if the circle is already inside the box
+            const circleRect = lastCircle.getBoundingClientRect();
+            const isInsideBox =
+                circleRect.left >= boxRect.left &&
+                circleRect.right <= boxRect.right &&
+                circleRect.top >= boxRect.top &&
+                circleRect.bottom <= boxRect.bottom
+
+            if (isInsideBox) {
+                // Prevent movement outside once inside
+                if (x < boxRect.left) x = boxRect.left;
+                if (x + circleSize > boxRect.right) x = boxRect.right - circleSize;
+                if (y < boxRect.top) y = boxRect.top;
+                if (y + circleSize > boxRect.bottom) y = boxRect.bottom - circleSize;
+
+                lastCircle.style.background = "var(--purple)";
             }
 
-            // Only update position if circle isn't trapped
+            // Update position
             lastCircle.style.left = `${x}px`;
             lastCircle.style.top = `${y}px`;
         }
     });
 };
+
+
+
+
+
+// export const moveCircle = () => {
+//     document.addEventListener("mousemove", (event) => {
+//         const circles = document.getElementsByClassName('circle');
+//         const box = document.querySelector('.box');
+
+//         if (circles.length > 0 && box) {
+//             const lastCircle = circles[circles.length - 1];
+
+//             // Get bounding rectangles
+//             const boxRect = box.getBoundingClientRect();
+//             const circleSize = 50; // Assuming each circle is 50px
+
+//             // Calculate new position with respect to mouse
+//             let x = event.clientX - circleSize / 2;
+//             let y = event.clientY - circleSize / 2;
+//             // Ensure the circle stays inside the box
+//             if (x < boxRect.left) x = boxRect.left;
+//             if (x + circleSize > boxRect.right) x = boxRect.right - circleSize;
+//             if (y < boxRect.top) y = boxRect.top;
+//             if (y + circleSize > boxRect.bottom) y = boxRect.bottom - circleSize;
+
+//             // Update position
+//             lastCircle.style.left = `${x}px`;
+//             lastCircle.style.top = `${y}px`;
+//         }
+//     });
+// };
