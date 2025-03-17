@@ -60,31 +60,3 @@ export const moveCircle = () => {
 
 
 
-
-// export const moveCircle = () => {
-//     document.addEventListener("mousemove", (event) => {
-//         const circles = document.getElementsByClassName('circle');
-//         const box = document.querySelector('.box');
-
-//         if (circles.length > 0 && box) {
-//             const lastCircle = circles[circles.length - 1];
-
-//             // Get bounding rectangles
-//             const boxRect = box.getBoundingClientRect();
-//             const circleSize = 50; // Assuming each circle is 50px
-
-//             // Calculate new position with respect to mouse
-//             let x = event.clientX - circleSize / 2;
-//             let y = event.clientY - circleSize / 2;
-//             // Ensure the circle stays inside the box
-//             if (x < boxRect.left) x = boxRect.left;
-//             if (x + circleSize > boxRect.right) x = boxRect.right - circleSize;
-//             if (y < boxRect.top) y = boxRect.top;
-//             if (y + circleSize > boxRect.bottom) y = boxRect.bottom - circleSize;
-
-//             // Update position
-//             lastCircle.style.left = `${x}px`;
-//             lastCircle.style.top = `${y}px`;
-//         }
-//     });
-// };
