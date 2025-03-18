@@ -23,31 +23,25 @@ export const moveCircle = () => {
     document.addEventListener("mousemove", (event) => {
         const circles = document.getElementsByClassName('circle');
         const box = document.querySelector('.box');
+        const circlesize = 50
+        let x = event.clientX - circlesize / 2
+        let y = event.clientY - circlesize / 2
+
 
         if (circles.length > 0 && box) {
-            const lastCircle = circles[circles.length - 1];
-            // Get bounding rectangles
-            const boxRect = box.getBoundingClientRect();
-            const circleSize = 50; // Assuming each circle is 50px
-            let x = event.clientX - circleSize / 2;
-            let y = event.clientY - circleSize / 2;
+            /// lets get the the recdom 
+            const lastCircle = circles[circles.length - 1]
+            const circlerec = lastCircle.getBoundingClientRect()
+            const boxrec = box.getBoundingClientRect()
+            const isinside = (
+                circlerec.left > boxrec.left &&
+                circlerec.right < boxrec.right &&
+                circlerec.top > boxrec.top&&
+                circlerec.bottom < boxrec.bottom
+            )
 
-            // Check if the circle is already inside the box
-            const circleRect = lastCircle.getBoundingClientRect();
-            const isInsideBox =
-                circleRect.left >= boxRect.left &&
-                circleRect.right <= boxRect.right &&
-                circleRect.top >= boxRect.top &&
-                circleRect.bottom <= boxRect.bottom
-
-            if (isInsideBox) {
-                // Prevent movement outside once inside
-                if (x < boxRect.left) x = boxRect.left;
-                if (x + circleSize > boxRect.right) x = boxRect.right - circleSize;
-                if (y < boxRect.top) y = boxRect.top;
-                if (y + circleSize > boxRect.bottom) y = boxRect.bottom - circleSize;
-
-                lastCircle.style.background = "var(--purple)";
+            if (isinside){
+                if(x)
             }
 
             // Update position
