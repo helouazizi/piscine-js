@@ -15,7 +15,7 @@ export const pick = () => {
 
     /// craete lines 
     // Create the SVG container if it doesn't exist
-    let svg = document.getElementById("crosshairSVG");
+    /*let svg = document.getElementById("crosshairSVG");
     if (!svg) {
         svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
         svg.setAttribute("id", "crosshairSVG");
@@ -46,7 +46,7 @@ export const pick = () => {
         axisY.setAttribute("stroke", "black");
         axisY.setAttribute("stroke-width", "2");
         svg.appendChild(axisY);
-    }
+    }*/
 
     document.addEventListener("mousemove", (event) => {
         let x = event.clientX
@@ -60,7 +60,7 @@ export const pick = () => {
         document.body.style.background = hslvalue
         document.body.setAttribute('hsl-data', hslvalue)
         // Move crosshair lines
-        axisX.setAttribute("x1", x);
+        /*axisX.setAttribute("x1", x);
         axisX.setAttribute("x2", x);
         axisX.setAttribute("y1", "0");
         axisX.setAttribute("y2", window.innerHeight);
@@ -68,7 +68,7 @@ export const pick = () => {
         axisY.setAttribute("x1", "0");
         axisY.setAttribute("x2", window.innerWidth);
         axisY.setAttribute("y1", y);
-        axisY.setAttribute("y2", y);
+        axisY.setAttribute("y2", y);*/
 
     })
 
