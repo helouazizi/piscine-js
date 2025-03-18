@@ -34,14 +34,18 @@ export const moveCircle = () => {
             const circlerec = lastCircle.getBoundingClientRect()
             const boxrec = box.getBoundingClientRect()
             const isinside = (
-                circlerec.left > boxrec.left &&
-                circlerec.right < boxrec.right &&
-                circlerec.top > boxrec.top&&
-                circlerec.bottom < boxrec.bottom
+                circlerec.left >= boxrec.left &&
+                circlerec.right <= boxrec.right &&
+                circlerec.top >= boxrec.top&&
+                circlerec.bottom <= boxrec.bottom
             )
 
             if (isinside){
-                if(x)
+                if(x<boxrec.left) x = boxrec.left 
+                if (x +circlesize> boxrec.right) x = boxrec.right-circlesize
+                if(y+circlesize > boxrec.bottom) y = boxrec.bottom -circlesize
+                if(y < boxrec.top) y = boxrec.top 
+                lastCircle.style.background = "var(--purple)"
             }
 
             // Update position
